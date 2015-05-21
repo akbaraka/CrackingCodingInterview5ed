@@ -5,6 +5,13 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWorld", "HelloWorld\HelloWorld.vcxproj", "{C7B4355A-4A74-469F-B6DA-F71EBA4F3917}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{97E50C6B-36A5-4C65-9783-DCBC720BBF71}"
+	ProjectSection(SolutionItems) = preProject
+		README.txt = README.txt
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "chapter1", "chapter1\chapter1.vcxproj", "{83AF728B-ACAC-4A90-936D-4AE8A6FDC1F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +22,10 @@ Global
 		{C7B4355A-4A74-469F-B6DA-F71EBA4F3917}.Debug|Win32.Build.0 = Debug|Win32
 		{C7B4355A-4A74-469F-B6DA-F71EBA4F3917}.Release|Win32.ActiveCfg = Release|Win32
 		{C7B4355A-4A74-469F-B6DA-F71EBA4F3917}.Release|Win32.Build.0 = Release|Win32
+		{83AF728B-ACAC-4A90-936D-4AE8A6FDC1F0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{83AF728B-ACAC-4A90-936D-4AE8A6FDC1F0}.Debug|Win32.Build.0 = Debug|Win32
+		{83AF728B-ACAC-4A90-936D-4AE8A6FDC1F0}.Release|Win32.ActiveCfg = Release|Win32
+		{83AF728B-ACAC-4A90-936D-4AE8A6FDC1F0}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

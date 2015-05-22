@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 #include <Ch1.h>
 using namespace std;
 
@@ -23,6 +24,16 @@ void IsPermutation(){
 	getline(cin, two);
 	cout << "Result is: " << boolalpha << isPermutation(one, two) << endl;
 }
+void replace20(){
+	cout << "Enter string:" << endl;
+	string str;
+	getline(cin, str);
+	auto num_spaces = count(str.begin(), str.end(), ' ');
+	unique_ptr<char[]> char_arr(new char[str.length() + 1 + 2 * num_spaces]);
+	strcpy(char_arr.get(), str.c_str());
+	replace20(char_arr.get(), str.length());
+	cout << "Result is: " << char_arr.get() << endl;
+}
 int main(int argc, char* argv[])
 {
 	char choice;
@@ -31,6 +42,7 @@ int main(int argc, char* argv[])
 		cout << "1 - Unique string" << endl;
 		cout << "2 - Reverse string" << endl;
 		cout << "3 - Are two strings permutation" << endl;
+		cout << "4 - Replace spaces with '%20' in string" << endl;
 		cout << "0 - Exit" << endl;
 
 		cin >> choice;
@@ -40,6 +52,7 @@ int main(int argc, char* argv[])
 		case '1': AllUniqueCharacters(); break;
 		case '2': ReverseString(); break;
 		case '3': IsPermutation(); break;
+		case '4': replace20(); break;
 		}
 
 	} while (choice != '0');

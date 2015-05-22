@@ -57,3 +57,36 @@ bool isPermutation(const std::string& one, const std::string& two)
 
 	return true;
 }
+
+//Problem 1.4 
+//Write a method to replace all spaces with '%20'
+//You may assume that the string has sufficient 
+//space at the end of the string to hold the additional characters
+//and you are given the "true" length of the string
+void replace20(char* str, size_t len)
+{
+	auto p = str;
+	size_t space_count = 0;
+	while (*p)
+		if (*p++ == ' ')
+			space_count++;
+	if (0 == space_count) return;//nothing to do
+
+	//replacing ' ' with '%20' requires two extra chars for each
+	auto p2 = str + len + 2 * space_count;
+	*p2-- = '\0';
+	p = str + len - 1;
+	while (space_count){
+		if (' ' == *p){
+			*p2 = '0'; p2--;
+			*p2 = '2'; p2--;
+			*p2 = '%'; p2--;
+			space_count--;
+		}
+		else{
+			*p2 = *p;
+			p2--;
+		}
+		p--;
+	}
+}

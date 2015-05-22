@@ -19,3 +19,13 @@ bool isPermutation(const std::string& one, const std::string& two);
 //space at the end of the string to hold the additional characters
 //and you are given the "true" length of the string
 void replace20(char* str, size_t len);
+
+//Problem 1.5
+//Implement a method to perform basic string compression
+//using counts of repeated characters. For example the string
+//'aabcccccaa' would become a2b1c5a3
+//if the compressed string would become smallerthan original string, your method should return original string
+std::string compress(const std::string& str);
+
+//decompressor for the above function
+std::string decompress(const std::string& str);

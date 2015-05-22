@@ -34,15 +34,26 @@ void replace20(){
 	replace20(char_arr.get(), str.length());
 	cout << "Result is: " << char_arr.get() << endl;
 }
+void compress(){
+	cout << "Enter string to compress:" << endl;
+	string str;
+	getline(cin, str);
+	str = compress(str);
+	cout << "Result is: " << str << endl;
+	cout << "Decompressed back:" << endl;
+	cout << decompress(str) << endl;
+}
 int main(int argc, char* argv[])
 {
 	char choice;
 	do{
-		cout << "Select problem to test:" << endl;
+		cout << "\n===========================================\nSelect problem to test:" << endl;
 		cout << "1 - Unique string" << endl;
 		cout << "2 - Reverse string" << endl;
 		cout << "3 - Are two strings permutation" << endl;
 		cout << "4 - Replace spaces with '%20' in string" << endl;
+		cout << "5 - Compress string" << endl;
+
 		cout << "0 - Exit" << endl;
 
 		cin >> choice;
@@ -53,6 +64,7 @@ int main(int argc, char* argv[])
 		case '2': ReverseString(); break;
 		case '3': IsPermutation(); break;
 		case '4': replace20(); break;
+		case '5':compress(); break;
 		}
 
 	} while (choice != '0');

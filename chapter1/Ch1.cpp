@@ -2,6 +2,7 @@
 #include <limits>
 #include <vector>
 #include <utility>
+#include <sstream>
 using namespace std;
 //Problem 1.1
 //returns true if input string has only unique characters
@@ -89,4 +90,66 @@ void replace20(char* str, size_t len)
 		}
 		p--;
 	}
+}
+
+//Problem 1.5
+//Implement a method to perform basic string compression
+//using counts of repeated characters. For example the string
+//'aabcccccaaa' would become a2b1c5a3
+//if the compressed string would become smallerthan original string, your method should return original string
+///////////////////////////////////////////
+//algorithm used differs from the one used in the book
+//to prevent compression that does not decrease length, we don't compress up to 2 chars
+//so so the test string would become aabc5a3 which is even shorter
+std::string compress(const std::string& str)
+{
+	if (!str.length()) return "";
+	stringstream res;
+	
+	remove_reference<decltype(str)>::type::value_type last_ch = str[0];
+	size_t count = 1;//first char is counted
+	res << last_ch;
+	for (auto p = str.begin() + 1; p != str.end(); ++p){
+		if (*p == last_ch){
+			count++;
+			continue;
+		}
+		if (count == 2)
+			res << last_ch;
+		if (count > 2)
+			res << count;
+		last_ch = *p;
+		count = 1;
+		res << last_ch;
+	}
+	//take care of last char
+	if (count == 2)
+		res << last_ch;
+	if (count > 2)
+		res << count;
+
+	return res.str();
+}
+
+//decompressor for the above function
+std::string decompress(const std::string& str)
+{
+	if (!str.length()) return "";
+	stringstream res;
+	stringstream in;
+	in<<str;
+	remove_reference<decltype(str)>::type::value_type last_ch,ch;
+	size_t count;
+	while (in.get(ch)){
+		if (ch >= '1' && ch <= '9'){
+			in.unget();
+			in >> count;
+			res << string(count - 1, last_ch);
+		}
+		else{
+			last_ch = ch;
+			res << last_ch;
+		}
+	}
+	return res.str();
 }

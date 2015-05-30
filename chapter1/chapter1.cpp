@@ -38,6 +38,10 @@ void compress(){
 	cout << "Enter string to compress:" << endl;
 	string str;
 	getline(cin, str);
+	if (string::npos != str.find_first_of("0123456789")){
+		cout << "The string must not have digits" << endl;
+		return;
+	}
 	str = compress(str);
 	cout << "Result is: " << str << endl;
 	cout << "Decompressed back:" << endl;
